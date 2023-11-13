@@ -29,7 +29,7 @@ if response.status_code == 200:
             if not admin_role:
                 # Make a DELETE request to delete the user with the bearer token
                 delete_response = requests.delete(f"{delete_user_url}{user_id}", headers=headers)
-                if delete_response.status_code == 204:
+                if delete_response.status_code == 204 or delete_response.status_code == 200:
                     print(f"User with ID {user_id} has been deleted.")
                 else:
                     print(f"Failed to delete user with ID {user_id}. Status Code: {delete_response.status_code}")
