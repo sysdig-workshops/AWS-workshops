@@ -1,3 +1,9 @@
+# Prepare test workload
+```
+ kubectl create deployment playground --image=manuelbcd/security-playground:1.0.6
+ kubectl expose deployment playground --port=80 --target-port=8080 --name=playground --type=LoadBalancer
+```
+
 # Configure local parameters
 ```
 LOAD_BALANCER_URL=$(kubectl get svc playground -n default -o json | jq -r .status.loadBalancer.ingress[].hostname)
